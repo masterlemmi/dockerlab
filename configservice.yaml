@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: configservice
+  labels:
+    app: configservice
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: configservice
+  template:
+    metadata:
+      labels:
+        app: configservice
+    spec:
+      containers:
+      - name: demo-login
+        image: demo-login
+        ports:
+        - containerPort: 8888
